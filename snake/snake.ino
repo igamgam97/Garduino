@@ -25,7 +25,7 @@ BlockSnacke _BlockSnacke[101];
 int queue[51];
 int lengthShake=5;
 int ySquare,xSquare;
-int speedSnake=100;
+int speedSnake;
 bool firstsquare=true;
 bool start=true;
 bool isEmptySpace=true;
@@ -41,6 +41,7 @@ HCuOLED HCuOLED(SH1106, CS_DI, DC_DI, RST_DI); // For SH1106 displays (HCMODU005
 
 void setup() 
 {
+ 
     Serial.begin(9600);
     refreshSnake();
     for (int i; i < 4; i++)
@@ -62,6 +63,7 @@ void loop()
   {
         
      if(start){
+       speedSnake=100;
       delay(speedSnake);
       isNewGame();
        HCuOLED.Refresh();
@@ -432,9 +434,9 @@ bool isLeftEmpty(){
     }
 
 void speedShake(void){
-  if (lengthShake<10) speedSnake=100;
-  else if (lengthShake<20) speedSnake=50;
-    else if (lengthShake<35) speedSnake=25;
+  if (lengthShake<11) speedSnake=100;
+  else if (lengthShake<21) speedSnake=50;
+    else if (lengthShake<36) speedSnake=25;
     else speedSnake=10;
   }
 
