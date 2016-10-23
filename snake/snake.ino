@@ -21,7 +21,7 @@ struct BlockSnacke
   int X;
   int Y; 
 };
-BlockSnacke _BlockSnacke[101];
+BlockSnacke _BlockSnacke[51];
 int queue[51];
 int lengthShake=5;
 int ySquare,xSquare;
@@ -74,7 +74,7 @@ void loop()
 
       }
       else{
-        if (lengthShake<101){
+        if (lengthShake<51){
           //speedShake();
           if(userMove()){
     if (firstsquare) {
@@ -419,11 +419,7 @@ bool isLeftEmpty(){
   }
 
   void refreshSnake(){
-    for (int i=4;i<lengthShake;i++){
-    _BlockSnacke[i].X=0;
-    _BlockSnacke[i].X=0;
-    queue[i]=0;
-    }
+    
     lengthShake=5;
   for (int i=0;i<lengthShake;i++){
     _BlockSnacke[i].X=9;
